@@ -1,0 +1,24 @@
+{
+  "name": "inspiration-serverless-test",
+  "version": "0.0.1",
+  "description": "Repository for learning how to automatically deploy serverless applications",
+  "main": "addUser.js",
+  "scripts": {
+    "test": "cross-env AWS_PROFILE=inspiration-serverless-test node validate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisKraljevicD2L/inspiration-serverless-test.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChrisKraljevicD2L/inspiration-serverless-test/issues"
+  },
+  "homepage": "https://github.com/ChrisKraljevicD2L/inspiration-serverless-test#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.356.0",
+    "cross-env": "^5.2.0",
+    "serverless": "^1.33.0"
+  }
+}
