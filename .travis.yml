@@ -1,7 +1,3 @@
-language: node_js
-node_js:
-- 8
-dist: trusty
 sudo: required
 stages:
 - name: deploy-dev
@@ -10,7 +6,9 @@ stages:
 jobs:
   include:
   - stage: deploy-dev
-    language: generic
+    language: node_js
+    node_js:
+    - 8.10.0
     env:
       - AWS_PROFILE=inspiration-serverless-test-dev
       - AWS_ENVIRONMENT=dev
