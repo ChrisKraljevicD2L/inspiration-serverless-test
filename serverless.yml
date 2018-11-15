@@ -3,8 +3,9 @@ service: user-management-service
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: inspiration-serverless-test
-  stage: ${env:USERNAME, env:USER}
+  profile: ${env:AWS_PROFILE}
+  stage: ${env:AWS_ENVIRONMENT}
+  region: ${env:AWS_REGIONS}
   iamRoleStatements:
     - Effect: Allow
       Action:

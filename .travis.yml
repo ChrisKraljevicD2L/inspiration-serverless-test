@@ -3,11 +3,18 @@ node_js:
 - 8
 dist: trusty
 sudo: required
-script:
-- set -e
-- serverless config credentials -p aws -n $AWS_PROFILE -k $AWS_ACCESS_KEY -s $AWS_SECRET_KEY
-- npm run test
-- if [ "$TRAVIS_BRANCH" == "master" ]; then serverless deploy; fi
-env:
-  global:
-  - AWS_PROFILE=inspiration-serverless-test
+stages:
+- name: deploy-dev
+  if: (branch = master AND type = push AND fork=false)
+
+jobs:
+  include:
+  - stage: deploy-dev
+    language: generic
+    env:
+      - AWS_PROFILE=inspiration-serverless-test-dev
+      - AWS_ENVIRONMENT=dev
+      - AWS_REGIONS="us-east-1"
+    script:
+      - serverless config credentials -p aws -n $AWS_PROFILE -k $AWS_ACCESS_KEY -s $AWS_SECRET_KEY
+      - serverless deploy

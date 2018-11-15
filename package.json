@@ -4,7 +4,8 @@
   "description": "Repository for learning how to automatically deploy serverless applications",
   "main": "addUser.js",
   "scripts": {
-    "test": "cross-env AWS_PROFILE=inspiration-serverless-test node validate.js"
+    "test": "cross-env AWS_PROFILE=inspiration-serverless-test node validate.js",
+    "deploy": "serverless deploy"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,6 @@
   "homepage": "https://github.com/ChrisKraljevicD2L/inspiration-serverless-test#readme",
   "devDependencies": {
     "aws-sdk": "^2.356.0",
-    "cross-env": "^5.2.0",
     "serverless": "^1.33.0"
   }
 }
